@@ -106,7 +106,7 @@ class PlacePickerActivity : AppCompatActivity(), OnMapReadyCallback,
             )
           )
         } else {
-          mMap.animateCamera(CameraUpdateFactory.newLatLng(LatLng(task.latitude, task.longitude)))
+          mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(task.latitude, task.longitude), 15F))
         }
 
       }
