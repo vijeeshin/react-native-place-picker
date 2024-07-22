@@ -102,11 +102,11 @@ class PlacePickerActivity : AppCompatActivity(), OnMapReadyCallback,
               LatLng(
                 options.initialCoordinates.latitude,
                 options.initialCoordinates.longitude
-              ), 15F
+              ), 17F
             )
           )
         } else {
-          mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(task.latitude, task.longitude), 15F))
+          mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(task.latitude, task.longitude), 17F))
         }
 
       }
