@@ -92,16 +92,35 @@ class PlacePickerActivity : AppCompatActivity(), OnMapReadyCallback,
       isMyLocationButtonEnabled = false
 
     }
+    getLocationProvider().lastLocation.addOnSuccessListener { task ->
+      if (task == null) {
+        Toast.makeText(this, "Unable to get location", Toast.LENGTH_SHORT).show()
+      } else {
+        if(options.initialCoordinates.latitude != 0 && options.initialCoordinates.longitude != 0) {
+          mMap.moveCamera(
+            CameraUpdateFactory.newLatLngZoom(
+              LatLng(
+                options.initialCoordinates.latitude,
+                options.initialCoordinates.longitude
+              ), 15F
+            )
+          )
+        } else {
+          mMap.animateCamera(CameraUpdateFactory.newLatLng(LatLng(task.latitude, task.longitude)))
+        }
+
+      }
+    }
 //    mMap.setPadding(10, (supportActionBar?.height ?: 0), 10, getActionBarHeight())
 //  mMap.isMyLocationEnabled = options.enableUserLocation // Cause crash
-    mMap.moveCamera(
+   /* mMap.moveCamera(
       CameraUpdateFactory.newLatLngZoom(
         LatLng(
           options.initialCoordinates.latitude,
           options.initialCoordinates.longitude
         ), 15F
       )
-    )
+    )*/
   }
   override fun onCameraMoveStarted(reason: Int) {
     if (!animationIsUp) {
