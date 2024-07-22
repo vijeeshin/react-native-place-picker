@@ -8,8 +8,8 @@ enum class PlacePickerPresentation(val type: String) {
 }
 
 data class PlacePickerCoordinate (
-  var latitude: Double = 0.0F,
-  var longitude: Double = 0.0F
+  var latitude: Double = 0.00,
+  var longitude: Double = 0.00
 )
 
 data class PlacePickerAddress(
