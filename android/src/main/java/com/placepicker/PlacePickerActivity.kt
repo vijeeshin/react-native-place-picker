@@ -96,7 +96,7 @@ class PlacePickerActivity : AppCompatActivity(), OnMapReadyCallback,
       if (task == null) {
         Toast.makeText(this, "Unable to get location", Toast.LENGTH_SHORT).show()
       } else {
-        if(options.initialCoordinates.latitude != 0 && options.initialCoordinates.longitude != 0) {
+        if(options.initialCoordinates.latitude != 0.toDouble() && options.initialCoordinates.longitude != 0.toDouble()) {
           mMap.moveCamera(
             CameraUpdateFactory.newLatLngZoom(
               LatLng(
